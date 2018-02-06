@@ -14,6 +14,13 @@ from amcrest.utils import to_unit, percent
 
 
 class Storage(object):
+    
+    @property
+    def factory_create(self):
+        ret = self.command(
+            'mediaFileFind.cgi?action=factory.create'
+        )
+        return ret.content.decode('utf-8')
 
     @property
     def storage_device_info(self):
