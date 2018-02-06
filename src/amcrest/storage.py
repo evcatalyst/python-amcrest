@@ -28,7 +28,7 @@ class Storage(object):
         ret = self.command(
             str('mediaFileFind.cgi?action=findFile&object='+ factory_id + '&condition.Channel=' + channel_no + 'condition.Dirs[0]=' + directory + '&condition.Types[0]=' + type_id + '&condition.Events[0]=AlarmLocal' + '&condition.Events[1]=VideoMotion' + '&condition.StartTime=' + start_time + '&condition.EndTIme=' + end_time + '&condition.VideoStream=Main')
         )
-        return ret.content.decode('utf-8)
+        return ret.content.decode('utf-8')
             
     @property
     def storage_device_info(self):
