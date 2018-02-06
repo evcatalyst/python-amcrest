@@ -26,21 +26,7 @@ class Storage(object):
     @property
     def find_files(factory_id, channel_no=1, directory, type_id, start_time, end_time):
         ret = self.command(
-            'mediaFileFind.cgi?action=findFile&object='+
-            factory_id +
-            '&condition.Channel=' +
-            channel_no +
-            'condition.Dirs[0]=' +
-            directory +
-            '&condition.Types[0]=' +
-            type_id +
-            '&condition.Events[0]=AlarmLocal' +
-            '&condition.Events[1]=VideoMotion' +
-            '&condition.StartTime=' +
-            start_time +
-            '&condition.EndTIme=' +
-            end_time +
-            '&condition.VideoStream=Main'
+            str('mediaFileFind.cgi?action=findFile&object='+ factory_id + '&condition.Channel=' + channel_no + 'condition.Dirs[0]=' + directory + '&condition.Types[0]=' + type_id + '&condition.Events[0]=AlarmLocal' + '&condition.Events[1]=VideoMotion' + '&condition.StartTime=' + start_time + '&condition.EndTIme=' + end_time + '&condition.VideoStream=Main')
         )
         return ret.content.decode('utf-8)
             
